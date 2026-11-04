@@ -1,0 +1,432 @@
+/*Main Website Body*/
+
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #F5F5F5;
+}
+
+header
+{
+    background-color: #2E8B57;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+}
+
+nav
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+nav a
+{
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+nav a:hover
+{
+    background-color: #FFFFFF;
+    color: #2E8B57;
+    border-radius: 5px;
+}
+
+.currentTab
+{
+    color: #2E8B57 !important;
+    background-color: #FFFFFF !important;
+}
+
+main
+{
+    width: 90%;
+    margin: auto;
+}
+
+.breadcrumb a
+{
+    color:#000000 ;
+    text-decoration: none;
+}
+
+.currentBreadcrumb 
+{
+    color: #2E8B57 !important;
+}
+
+section
+{
+    background-color: #FFFFFF;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td
+{
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: left;
+}
+
+h2
+{
+    color: #2E8B57;
+}
+
+img
+{
+    border-radius: 10px;
+}
+
+.logo
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.logo:hover 
+{
+    transform: scale(1.1);
+}
+
+.dogPat
+{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dogGettingpat
+{
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.dogPat div
+{
+    text-align: left;
+}
+
+.animalImage
+{
+    width:250px;
+    height:250px;
+    object-fit:cover;
+    transition:.3s;
+}
+
+.animalImageLink
+{
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    text-decoration: none !important;
+}
+
+.animalImageLink:hover
+{
+    background: none !important;
+}
+
+.animalImage:hover
+{
+    transform:scale(1.05);
+}
+
+article
+{
+    border: 2px solid #CCCCCC;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+article:hover
+{
+    transform: translateY(-5px);
+}
+
+article a
+{
+    display:inline-block;
+    margin-top:10px;
+    text-decoration:none;
+    background:#2E8B57;
+    color:#FFFFFF;
+    padding:10px 15px;
+    border-radius:5px;
+}
+
+article a:hover
+{
+    background-color:#2E8B57;
+}
+
+.featuredAnimals
+{
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.animalImage
+{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.animalImage:hover
+{
+    transform: scale(1.05);
+}
+
+footer
+{
+    background-color: #2E8B57;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/*About Page*/
+
+.aboutTitle
+{
+    text-align: center;
+    color: #2E8B57;
+}
+
+.aboutSection
+{
+    text-align: center;
+}
+
+.aboutSection p
+{
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* About Page Video */
+
+.embed-container
+{
+    position: relative;
+    width: 60%;
+    padding-bottom: 33.75%;
+    height: 0;
+    overflow: hidden;
+    margin: auto;
+}
+
+.embed-container iframe
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mission
+{
+    background-color: #FFFFFF;
+}
+
+.vision
+{
+    background-color: #FFFFFF;
+}
+
+.adoptionProcess 
+{
+    line-height: 2;
+    padding-left: 30px;
+}
+
+.whyAdopt 
+{
+    line-height: 2;
+    padding-left: 30px;
+}
+
+.aboutLogo
+{
+    margin-bottom: 20px;
+}
+
+/* Donations and Rescue Form */
+
+main form
+{
+    max-width: 600px;
+    margin: auto;
+}
+
+input,
+select,
+textarea
+{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"]
+{
+    background-color: #2E8B57;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover
+{
+    background-color:#2E8B57;
+}
+
+/*Search Bar*/
+
+nav form
+{
+    margin: 0;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav input[type="search"] 
+{
+    width: 220px;
+    padding: 5px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav input[type="submit"] 
+{
+    width: auto;
+    padding: 5px 10px;
+    margin: 0;
+}
+
+/* Contact Page Map */
+
+.map-container
+{
+    width: 70%;
+    margin: 20px auto;
+}
+
+.map-container iframe
+{
+    display: block;
+    width: 100%;
+    height: 400px;
+    border: 0;
+    margin: auto;
+}
+
+
+
+
+/* Mobile Responsive Design */
+
+@media screen and (max-width: 768px)
+{
+    nav
+    {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    nav form
+    {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    nav input[type="search"]
+    {
+        width: 100%;
+    }
+
+    nav input[type="submit"]
+    {
+        width: 100%;
+    }
+
+    .logo
+    {
+        width: 130px;
+        height: 130px;
+    }
+
+    main
+    {
+        width: 95%;
+    }
+
+    .dogPat
+    {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .animalImage
+    {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .embed-container,
+    .map-container
+    {
+        width: 100%;
+    }
+
+    table
+    {
+        font-size: 14px;
+    }
+
+    th,
+    td
+    {
+        padding: 6px;
+    }
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Donations</title>
+
+    <link rel="stylesheet" href="CSS/website.css">
+
+    <script src="/Js/donationValidation.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="index.html">
+
+        <img src="./Img/logo.jpg"
+        class="logo"
+        alt="Animals In Need Logo">
+
+        </a>
+
+        <h1>Animals In Need</h1>
+
+        <p>Giving Every Animal a Second Chance</p>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="animals.html">Animals</a>
+
+            <a href="donations.html" class="currentTab">Donations</a>
+
+            <a href="rescue.html">Rescue</a>
+
+            <a href="contact.html">Contact</a>
+
+            <form name="searchForm" method="post" action="#">
+            <input type="search" name="search" value="" id="search" placeholder="Search...">
+            <input type="submit" name="submit" value="Search">
+            </form>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> >
+            <a href="donations.html" class="currentBreadcrumb">Donations</a>
+        </div>
+
+        <section>
+
+            <h2>Current Donation Requests</h2>
+
+            <p>
+                The following items are currently needed to help care for rescued
+                animals. Donations of any amount are greatly appreciated.
+            </p>
+
+            <table>
+
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity Needed</th>
+                </tr>
+
+                <tr>
+                    <td>Dry Dog Food (10 kg)</td>
+                    <td>20 Bags</td>
+                </tr>
+
+                <tr>
+                    <td>Cat Food</td>
+                    <td>15 Bags</td>
+                </tr>
+
+                <tr>
+                    <td>Goat Feed</td>
+                    <td>10 Bags</td>
+                </tr>
+
+                <tr>
+                    <td>Dog Leashes</td>
+                    <td>25</td>
+                </tr>
+
+                <tr>
+                    <td>Animal Blankets</td>
+                    <td>30</td>
+                </tr>
+
+                <tr>
+                    <td>Medical Supplies</td>
+                    <td>Anything is accepeted</td>
+                </tr>
+
+            </table>
+
+            <h3>Drop-off Location</h3>
+
+            <p>
+                Animals In Need<br>
+                #15 Rescue Drive<br>
+                Cunupia<br>
+                Trinidad and Tobago
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Support Our Mission</h2>
+
+            <p>
+                The items listed above are currently needed to help care for rescued
+                animals at our shelter. Donations of food, medical supplies,
+                blankets, leashes and other essential items allow us to provide
+                proper care while animals wait for their forever homes. Monetary
+                donations are also welcome and help cover veterinary treatment and
+                daily operating expenses.
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Make a Donation</h2>
+
+            <form name="donationForm" method="post" action="#" onsubmit="return validateDonationForm(this);">
+
+                <p>
+
+                    <label for="name">Full Name</label><br>
+
+                    <input type="text"
+                    id="name"
+                    name="name">
+                    <span id="nameError"></span>
+
+                </p>
+
+                <p>
+
+                    <label for="email">Email Address</label><br>
+
+                    <input type="email"
+                    id="email"
+                    name="email">
+                    <span id="emailError"></span>
+
+                </p>
+
+                <p>
+
+                    <label for="type">Donation Type</label><br>
+
+                    <select id="type" name="type">
+
+                        <option value="" disabled selected>Please Select Donation Type</option>
+
+                        <option>Money</option>
+                        <option>Pet Food</option>
+                        <option>Medical Supplies</option>
+                        <option>Blankets</option>
+                        <option>Toys</option>
+                        <option>Other</option>
+
+                    </select>
+
+                    <span id="typeError"></span>
+
+                </p>
+
+                <p>
+
+                    <label for="amount">Donation Amount (TTD)</label><br>
+
+                    <input type="number"
+                    id="amount"
+                    name="amount"
+                    min="1">
+                    <span id="amountError"></span>
+
+                </p>
+
+                <p>
+
+                    <label for="message">Message</label><br>
+
+                    <textarea id="message"
+                    name="message"
+                    rows="5"
+                    cols="40"
+                    placeholder="Enter your message"></textarea>
+
+                    <span id="messageError"></span>
+                </p>
+
+                <p>
+
+                    <input type="submit"
+                    value="Submit Donation">
+
+                </p>
+
+            </form>
+
+        </section>
+
+        <section>
+
+            <h2>Thank You</h2>
+
+            <p>
+                Every contribution, no matter the size, helps us rescue,
+                rehabilitate and care for animals in need. Thank you for
+                supporting Animals In Need and helping us make a difference
+                throughout Trinidad and Tobago.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>Animals In Need © 2026</p>
+
+        <p>Email: animalsinneed.tt@gmail.com</p>
+
+        <p>Phone: (868) 335-2173</p>
+
+    </footer>
+
+</body>
+
+</html>

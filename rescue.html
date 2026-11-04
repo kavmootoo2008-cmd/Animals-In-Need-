@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rescue Page</title>
+
+    <link rel="stylesheet" href="CSS/website.css">
+
+    <script src="./Js/rescueValidation.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="index.html">
+
+        <img src="./Img/logo.jpg"
+        class="logo"
+        alt="Animals In Need Logo">
+
+        </a>
+
+        <h1>Animals In Need</h1>
+
+        <p>Giving Every Animal a Second Chance</p>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="animals.html">Animals</a>
+
+            <a href="donations.html">Donations</a>
+
+            <a href="rescue.html" class="currentTab">Rescue</a>
+
+            <a href="contact.html">Contact</a>
+
+            <form name="searchForm" method="post" action="#">
+            <input type="search" name="search" value="" id="search" placeholder="Search...">
+            <input type="submit" name="submit" value="Search">
+            </form>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> >
+            <a href="rescue.html" class="currentBreadcrumb">Rescue</a>
+        </div>
+
+
+        <section>
+
+            <h2>Animal Rescue Services</h2>
+
+            <p>
+                Animals In Need provides rescue services for abandoned, injured and
+                neglected animals throughout Trinidad and Tobago. If you find an
+                animal that needs help, contact us and our team will respond as
+                quickly as possible.
+            </p>
+
+        </section>
+
+
+        <section>
+
+            <h2>When To Request A Rescue</h2>
+
+            <ul>
+
+                <li>Injured or sick animals</li>
+
+                <li>Abandoned animals without shelter or food</li>
+
+                <li>Animals trapped or in dangerous situations</li>
+
+                <li>Cases of mistreatment</li>
+
+                <li>Animals needing emergency assistance</li>
+
+            </ul>
+
+        </section>
+
+
+        <section>
+
+            <h2>Request A Rescue</h2>
+
+            <form onsubmit="return validateRescueForm(this);">
+
+
+                <p>
+
+                    <label for="name">
+                    Full Name
+                    </label>
+
+                    <br>
+
+                    <input type="text"
+                    id="name"
+                    name="name">
+
+                    <span id="rescueNameError"></span>
+
+                </p>
+
+
+                <p>
+
+                    <label for="email">
+                    Email Address
+                    </label>
+
+                    <br>
+
+                    <input type="email"
+                    id="email"
+                    name="email">
+
+                    <span id="rescueEmailError"></span>
+
+                </p>
+
+
+                <p>
+
+                    <label for="phone">
+                    Phone Number
+                    </label>
+
+                    <br>
+
+                    <input type="tel"
+                    id="phone"
+                    name="phone">
+
+                    <span id="rescuePhoneError"></span>
+
+                </p>
+
+
+                <p>
+
+                    <label for="location">
+                    Animal Location
+                    </label>
+
+                    <br>
+
+                    <input type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Enter where the animal was found">
+
+                    <span id="locationError"></span>
+
+                </p>
+
+
+                <p>
+
+                    <label for="animal">
+                    Animal Type
+                    </label>
+
+                    <br>
+
+                    <select id="animal"
+                    name="animal">
+
+                        <option value="" disabled selected>
+                            Please select animal type
+                        </option>
+
+                        <option>
+                            Dog
+                        </option>
+
+                        <option>
+                            Cat
+                        </option>
+
+                        <option>
+                            Goat
+                        </option>
+
+                        <option>
+                            Bird
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                    <span id="animalError"></span>
+
+                </p>
+
+                <p>
+
+                    <label for="gender">
+                    Animal Gender
+                    </label>
+
+                    <br>
+
+                    <select id="gender"
+                    name="gender">
+
+                    <option value="" disabled selected>
+                        Please select animal gender
+                    </option>
+
+                    <option>
+                        Male
+                    </option>
+
+                    <option>
+                        Female
+                    </option>
+
+                    </select>
+
+                    <span id="genderError"></span>
+
+                </p>
+
+
+                <p>
+
+                    <label for="condition">
+                    Animal Condition
+                    </label>
+
+                    <br>
+
+                    <textarea id="condition"
+                    name="condition"
+                    rows="5"
+                    cols="40"
+                    placeholder="Describe the animal's condition"></textarea>
+
+                    <span id="conditionError"></span>
+
+                </p>
+
+
+                <p>
+
+                    <input type="submit"
+                    value="Submit Rescue Request">
+
+                </p>
+
+
+            </form>
+
+        </section>
+
+
+        <section>
+
+            <h2>Emergency Contact</h2>
+
+            <p>
+                If the animal is in immediate danger, please contact our rescue team:
+            </p>
+
+            <p>
+                <strong>Phone:</strong> (868) 336-2342
+            </p>
+
+            <p>
+                <strong>Email:</strong> animalsinneed.tt@gmail.com
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>Animals In Need © 2026</p>
+
+        <p>Email: animalsinneed.tt@gmail.com</p>
+
+        <p>Phone: (868) 335-2173</p>
+
+    </footer>
+
+</body>
+
+</html>

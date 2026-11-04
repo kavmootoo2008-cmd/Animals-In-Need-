@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Page</title>
+
+    <link rel="stylesheet" href="CSS/website.css">
+
+    <script src="./Js/contactValidation.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="index.html">
+
+        <img src="./Img/logo.jpg"
+        class="logo"
+        alt="Animals In Need Logo">
+
+        </a>
+
+        <h1>Animals In Need</h1>
+
+        <p>Giving Every Animal a Second Chance</p>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="animals.html">Animals</a>
+
+            <a href="donations.html">Donations</a>
+
+            <a href="rescue.html">Rescue</a>
+
+            <a href="contact.html" class="currentTab">Contact</a>
+
+            <form name="searchForm" method="post" action="#">
+            <input type="search" name="search" value="" id="search" placeholder="Search...">
+            <input type="submit" name="submit" value="Search">
+            </form>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> >
+            <a href="contact.html" class="currentBreadcrumb">Contact</a>
+        </div>
+
+        <section>
+
+            <h2>Contact Us</h2>
+
+            <p>
+            Have questions about adoption, donations, volunteering or animal rescue?
+            Contact Animals In Need and our team will be happy to assist you.
+            </p>
+
+        </section>
+
+
+        <section>
+
+            <h2>Our Contact Information</h2>
+
+            <p>
+            <strong>Email:</strong> animalsinneed.tt@gmail.com
+            </p>
+
+            <p>
+            <strong>Phone:</strong> (868) 335-2173
+            </p>
+
+            <p>
+            <strong>Location:</strong> #15 Rescue Drive Cunupia
+            </p>
+
+            <p>
+            <strong>Opening Hours:</strong>
+            Monday - Saturday, 8:00 AM - 5:00 PM
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Send Us A Message</h2>
+
+
+            <form name="contactForm" method="post" action="#" onsubmit="return validateForm(this);">
+
+                <p>
+
+                    <label for="name">
+                    
+                    Full Name
+                    </label>
+
+                    <br>
+
+                    <input type="text"
+                    id="name"
+                    name="name">
+
+                    <span id="nameError"></span>
+
+                </p>
+
+                <p>
+
+                    <label for="email">
+                    Email Address
+                    </label>
+
+                    <br>
+
+                    <input type="email"
+                    id="email"
+                    name="email">
+
+                    <span id="emailError"></span>
+
+                </p>
+
+                <p>
+                    
+                    <label for="phone">Phone Number</label>
+
+                    <input type="tel" id="phone" name="phone">
+
+                    <span id="phoneError"></span>
+
+                </p>
+
+
+                <p>
+
+                    <label for="subject">
+                    Subject
+                    </label>
+
+                    <br>
+
+                    <select id="subject"
+                    name="subject">
+
+                    <option value="" disabled selected>
+                        Please select a subject
+                    </option>
+
+                    <option>
+                        Adoption Enquiry
+                    </option>
+
+                    <option>
+                        Donation Question
+                    </option>
+
+                    <option>
+                        Rescue Request
+                    </option>
+
+                    <option>
+                        Volunteer Information
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                    </select>
+
+                    <span id="subjectError"></span>
+
+                </p>
+
+                <p>
+
+                    <label for="message">
+                    
+                    Message
+                    </label>
+
+                    <br>
+
+                    <textarea id="message"
+                    name="message"
+                    rows="5"
+                    cols="40"
+                    placeholder="Enter your message"></textarea>
+
+                    <span id="messageError"></span>
+                
+                </p>
+
+                <p>
+                    <input type="submit" value="Send Message">
+                </p>
+
+            </form>
+        
+        </section>
+        
+        <section>
+
+            <h2>Our Location</h2>
+
+            <div class="map-container">
+
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18657.434379242226!2d-61.3945964019456!3d10.560193364690724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c35f9260c2625f5%3A0xd9e5f0625f9a7a9c!2sCunupia%20Veterinary%20Clinic%20Ltd!5e0!3m2!1sen!2stt!4v1786834082537!5m2!1sen!2stt"
+                title="Animals In Need Location"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+
+            </div>
+        
+        </section>
+
+        <section>
+
+            <h2>Volunteer With Us</h2>
+
+            <p>
+            Animals In Need is always looking for caring volunteers to help with
+            animal care, shelter support and community outreach programmes.
+            Contact us today if you would like to make a difference.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>Animals In Need © 2026</p>
+
+        <p>Email: animalsinneed.tt@gmail.com</p>
+
+        <p>Phone: (868) 335-2173</p>
+
+    </footer>
+
+</body>
+
+</html>
