@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     new FormData(form).entries()
                 );
 
-                const response = await fetch("/api/send-email", {
+                const response = await fetch("/api/email", {
 
                     method: "POST",
 
