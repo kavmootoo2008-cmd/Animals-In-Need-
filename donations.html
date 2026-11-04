@@ -11,7 +11,8 @@
 
     <link rel="stylesheet" href="CSS/website.css">
 
-    <script src="/Js/donationValidation.js"></script>
+    <script src="./Js/donationValidation.js" defer></script>
+    <script src="./Js/formEmail.js" defer></script>
 
 </head>
 
@@ -139,8 +140,10 @@
 
             <h2>Make a Donation</h2>
 
-            <form name="donationForm" method="post" action="#" onsubmit="return validateDonationForm(this);">
+            <form id="donationForm" name="donationForm" data-email-form="donation">
 
+                <p class="form-status" role="status" aria-live="polite"></p>
+                
                 <p>
 
                     <label for="name">Full Name</label><br>

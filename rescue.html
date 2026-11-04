@@ -11,7 +11,8 @@
 
     <link rel="stylesheet" href="CSS/website.css">
 
-    <script src="./Js/rescueValidation.js"></script>
+    <script src="./Js/rescueValidation.js" defer></script>
+    <script src="./Js/formEmail.js" defer></script>
 
 </head>
 
@@ -102,7 +103,9 @@
 
             <h2>Request A Rescue</h2>
 
-            <form onsubmit="return validateRescueForm(this);">
+            <form id="rescueForm" name="rescueForm" data-email-form="rescue">
+
+                <p class="form-status" role="status" aria-live="polite"></p>
 
 
                 <p>

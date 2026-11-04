@@ -11,7 +11,8 @@
 
     <link rel="stylesheet" href="CSS/website.css">
 
-    <script src="./Js/contactValidation.js"></script>
+    <script src="./Js/contactValidation.js" defer></script>
+    <script src="./Js/formEmail.js" defer></script>
 
 </head>
 
@@ -102,7 +103,9 @@
             <h2>Send Us A Message</h2>
 
 
-            <form name="contactForm" method="post" action="#" onsubmit="return validateForm(this);">
+            <form id="contactForm" name="contactForm" data-email-form="contact">
+                
+                <p class="form-status" role="status" aria-live="polite"></p>
 
                 <p>
 
