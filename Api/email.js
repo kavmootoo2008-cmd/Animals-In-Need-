@@ -1,3 +1,4 @@
+
 export default async function handler(req, res) {
 
     // Only allow POST requests
@@ -8,7 +9,6 @@ export default async function handler(req, res) {
     }
 
     try {
-
         const {
             formType,
             name,
@@ -22,9 +22,9 @@ export default async function handler(req, res) {
             animal,
             gender,
             condition
-        } = req.body;
+        } = req.body || {};
 
-        // Check required settings
+        // Get email settings from Vercel
         const apiKey = process.env.RESEND_API_KEY;
         const recipient = process.env.EMAIL_TO;
         const sender = process.env.EMAIL_FROM;
@@ -35,14 +35,20 @@ export default async function handler(req, res) {
             });
         }
 
-        // Only accept the three expected forms
+        // Check the form type
         if (!["contact", "donation", "rescue"].includes(formType)) {
             return res.status(400).json({
                 message: "Invalid form type."
             });
         }
 
-        if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        // Validate name and email
+        if (
+            typeof name !== "string" ||
+            !name.trim() ||
+            typeof email !== "string" ||
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+        ) {
             return res.status(400).json({
                 message: "Please provide a valid name and email."
             });
@@ -51,6 +57,7 @@ export default async function handler(req, res) {
         let emailSubject = "";
         let emailMessage = "";
 
+        // CONTACT FORM
         if (formType === "contact") {
 
             if (!phone || !subject || !message) {
@@ -74,6 +81,7 @@ ${message}
 `;
         }
 
+        // DONATION FORM
         else if (formType === "donation") {
 
             if (!type || !message) {
@@ -97,6 +105,7 @@ ${message}
 `;
         }
 
+        // RESCUE FORM
         else if (formType === "rescue") {
 
             if (!phone || !location || !animal || !gender || !condition) {
@@ -123,7 +132,7 @@ ${condition}
 `;
         }
 
-        // Send email using Resend
+        // Send the email using Resend
         const response = await fetch(
             "https://api.resend.com/emails",
             {
@@ -137,7 +146,7 @@ ${condition}
                 body: JSON.stringify({
                     from: sender,
                     to: [recipient],
-                    reply_to: email,
+                    reply_to: email.trim(),
                     subject: emailSubject,
                     text: emailMessage
                 })
@@ -149,8 +158,8 @@ ${condition}
         if (!response.ok) {
             console.error("Resend error:", result);
 
-            return res.status(500).json({
-                message: "Unable to send your email."
+            return res.status(502).json({
+                message: "Unable to send your email. Please try again."
             });
         }
 
@@ -158,15 +167,12 @@ ${condition}
             message: "Your form was submitted successfully!"
         });
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         console.error("Server error:", error);
 
         return res.status(500).json({
             message: "Something went wrong. Please try again."
         });
-
     }
 }
