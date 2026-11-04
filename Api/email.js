@@ -1,178 +1,61 @@
+document.querySelectorAll("[data-email-form]").forEach((form) => {
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-export default async function handler(req, res) {
+        const status = form.querySelector(".form-status");
+        const submitButton = form.querySelector('[type="submit"]');
 
-    // Only allow POST requests
-    if (req.method !== "POST") {
-        return res.status(405).json({
-            message: "Method not allowed"
-        });
-    }
-
-    try {
-        const {
-            formType,
-            name,
-            email,
-            phone,
-            subject,
-            message,
-            type,
-            amount,
-            location,
-            animal,
-            gender,
-            condition
-        } = req.body || {};
-
-        // Get email settings from Vercel
-        const apiKey = process.env.RESEND_API_KEY;
-        const recipient = process.env.EMAIL_TO;
-        const sender = process.env.EMAIL_FROM;
-
-        if (!apiKey || !recipient || !sender) {
-            return res.status(500).json({
-                message: "Email settings are missing."
-            });
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
         }
 
-        // Check the form type
-        if (!["contact", "donation", "rescue"].includes(formType)) {
-            return res.status(400).json({
-                message: "Invalid form type."
-            });
-        }
+        const formData = Object.fromEntries(new FormData(form).entries());
 
-        // Validate name and email
-        if (
-            typeof name !== "string" ||
-            !name.trim() ||
-            typeof email !== "string" ||
-            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
-        ) {
-            return res.status(400).json({
-                message: "Please provide a valid name and email."
-            });
-        }
+        // Tell the API which form was submitted
+        formData.formType = form.dataset.emailForm;
 
-        let emailSubject = "";
-        let emailMessage = "";
-
-        // CONTACT FORM
-        if (formType === "contact") {
-
-            if (!phone || !subject || !message) {
-                return res.status(400).json({
-                    message: "Please complete all contact fields."
-                });
+        try {
+            if (status) {
+                status.textContent = "Sending...";
             }
 
-            emailSubject = "New Contact Form Message";
-
-            emailMessage = `
-New Contact Message
-
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Subject: ${subject}
-
-Message:
-${message}
-`;
-        }
-
-        // DONATION FORM
-        else if (formType === "donation") {
-
-            if (!type || !message) {
-                return res.status(400).json({
-                    message: "Please complete the donation fields."
-                });
+            if (submitButton) {
+                submitButton.disabled = true;
             }
 
-            emailSubject = "New Donation Enquiry";
-
-            emailMessage = `
-New Donation Enquiry
-
-Name: ${name}
-Email: ${email}
-Donation Type: ${type}
-Donation Amount: ${amount || "Not specified"} TTD
-
-Message:
-${message}
-`;
-        }
-
-        // RESCUE FORM
-        else if (formType === "rescue") {
-
-            if (!phone || !location || !animal || !gender || !condition) {
-                return res.status(400).json({
-                    message: "Please complete all rescue fields."
-                });
-            }
-
-            emailSubject = "New Animal Rescue Request";
-
-            emailMessage = `
-New Animal Rescue Request
-
-Reporter Name: ${name}
-Email: ${email}
-Phone: ${phone}
-
-Animal Location: ${location}
-Animal Type: ${animal}
-Animal Gender: ${gender}
-
-Animal Condition:
-${condition}
-`;
-        }
-
-        // Send the email using Resend
-        const response = await fetch(
-            "https://api.resend.com/emails",
-            {
+            const response = await fetch("/api/email", {
                 method: "POST",
-
                 headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${apiKey}`
+                    "Content-Type": "application/json"
                 },
-
-                body: JSON.stringify({
-                    from: sender,
-                    to: [recipient],
-                    reply_to: email.trim(),
-                    subject: emailSubject,
-                    text: emailMessage
-                })
-            }
-        );
-
-        const result = await response.json();
-
-        if (!response.ok) {
-            console.error("Resend error:", result);
-
-            return res.status(502).json({
-                message: "Unable to send your email. Please try again."
+                body: JSON.stringify(formData)
             });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || "Email could not be sent.");
+            }
+
+            if (status) {
+                status.textContent = result.message;
+            }
+
+            form.reset();
+
+        } catch (error) {
+            console.error("Email submission error:", error);
+
+            if (status) {
+                status.textContent = error.message ||
+                    "Something went wrong. Please try again.";
+            }
+
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
         }
-
-        return res.status(200).json({
-            message: "Your form was submitted successfully!"
-        });
-
-    } catch (error) {
-
-        console.error("Server error:", error);
-
-        return res.status(500).json({
-            message: "Something went wrong. Please try again."
-        });
-    }
-}
+    });
+});
